@@ -21,11 +21,12 @@ class Fraction:
 		newnum = self.num * otherfraction.den + \
 				self.den * otherfraction.num
 
-		newdem = self.den * otherfraction.den
+		newden = self.den * otherfraction.den
 
 		common = gcd(newnum, newden)
 		
 		return Fraction(newnum//common, newden//common)
+		#return Fraction(newnum, newden)
 
 
 def squareroot(n):
@@ -54,3 +55,13 @@ def gcd(m,n):
 	return n
 	
 		
+if __name__ == "__main__":
+	test = Fraction(1,2)
+	test2 = Fraction(6,8)
+
+	print("Testing BASIC Functionality: \n")
+	print("Fraction A = %s" % (test))
+	print("Fraction B = %s \n" % (test2))
+	print("%s + %s = %s\n" % (test, test2, test+test2))
+	print("The gcd(100,40) = %d" %  gcd(10,3))
+	print("The sqrt(10) = %f " % squareroot(10))
