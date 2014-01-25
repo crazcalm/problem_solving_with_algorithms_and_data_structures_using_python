@@ -3,7 +3,7 @@ class Fraction:
 	A module to deal with basic fractions.
 	"""
 	
-	def __init__(self, top, bottom):
+	def __init__(self, top, bottom = 1):
 
 		common = gcd(top, bottom)
 		
@@ -25,12 +25,21 @@ class Fraction:
 
 	def __add__(self, otherfraction):
 
+		if isinstance(otherfraction, int) or \
+		   isinstance(otherfraction, float):
+
+			otherfraction = Fraction(otherfraction, 1)			
+
 		newnum = self.num * otherfraction.den + \
 				self.den * otherfraction.num
 
 		newden = self.den * otherfraction.den
 
 		return Fraction(newnum, newden)
+
+	def __radd__(self, other):
+		
+		return self.__add__(other)	
 	
 	def __eq__(self, other):
 		
@@ -138,6 +147,7 @@ def gcd(m,n):
 		n = oldm %oldn
 
 	return n
+
 	
 		
 if __name__ == "__main__":
@@ -181,7 +191,12 @@ if __name__ == "__main__":
 	print("Testing __lt__: %s < %s = %s" % (test2, test, test2 < test))
 	print("Testing __le__: %s <= %s = %s" % (test, test2, test <= test2))
 	print("Testing __ne__: %s != %s = %s" % (test, test2, test != test2))
-	print("Testing __ne__: %s != %s = %s" % (test, test, test != test))
-	
+	print("Testing __ne__: %s != %s = %s\n" % (test, test, test != test))
 
+	print("Modified the __add__: %s + %s = %s" % (test, 2, test + 2))
+	print("Modified the __add__: %s + %s = %s\n" % (2, test, 2 + test))
+
+
+	
+	
 	
