@@ -56,6 +56,12 @@ class Fraction:
 
 		return Fraction(newnum, newden)
 
+	def __truediv__(self, other):
+
+		new_other = Fraction(other.den, other.num)
+
+		return self.__mul__(new_other)
+
 	def getNum(self):
 		
 		return self.num
@@ -120,5 +126,6 @@ if __name__ == "__main__":
 
 	print("Testing __mul__: %s * %s = %s" % (test, test, test * test))
 	print("Testing __mul__: %s * %s = %s" % (test, test4, test * test4))
-	print("Testing __mul__: %s * %s = %s" % (test, test5, test * test5))
+	print("Testing __mul__: %s * %s = %s\n" % (test, test5, test * test5))
 
+	print("Testing __truediv__: %s / %s = %s" % (test, test, test/test))
