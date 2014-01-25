@@ -63,5 +63,5 @@ if __name__ == "__main__":
 	print("Fraction A = %s" % (test))
 	print("Fraction B = %s \n" % (test2))
 	print("%s + %s = %s\n" % (test, test2, test+test2))
-	print("The gcd(100,40) = %d" %  gcd(10,3))
+	print("The gcd(100,40) = %d" %  gcd(100,40))
 	print("The sqrt(10) = %f " % squareroot(10))
