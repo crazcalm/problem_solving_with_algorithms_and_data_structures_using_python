@@ -4,13 +4,20 @@ class Fraction:
 	"""
 	
 	def __init__(self, top, bottom):
+
+		common = gcd(top, bottom)
 		
-		self.num = top
-		self.den = bottom
+		self.num = top //common
+		self.den = bottom //common
+
 
 	def __str__(self):
 		
 		return str(self.num) +  "/" + str(self.den)
+
+	def __repr__(self):
+
+		return self.__str__()
 
 	def show(self):
 		
@@ -33,6 +40,14 @@ class Fraction:
 		secondnum = other.num * self.den
 
 		return firstnum == secondnum
+
+	def getNum(self):
+		
+		return self.num
+
+	def getDen(self):
+	
+		return self.den
 
 
 def squareroot(n):
@@ -72,7 +87,10 @@ if __name__ == "__main__":
 	print("%s + %s = %s\n" % (test, test2, test+test2))
 	print("The gcd(100,40) = %d" %  gcd(100,40))
 	print("The sqrt(10) = %f " % squareroot(10))
-	print("Testing equality: 1/2 == 1/2 --> %s" % (test==test))
-	print("Testing equality: 1/2 == 6/8 --> %s" % (test==test2))
-	print("Testing equality: 1/2 == 4/8 --> %s" % (test==test3))
+	print("Testing equality: %s == %s --> %s" % (test, test, test==test))
+	print("Testing equality: %s == %s --> %s" % (test, test2, test==test2))
+	print("Testing equality: %s == %s --> %s\n" % (test, test3, test==test3))
+	
+	print("Testing getNum for Fraction A: %s" % (test.getNum()))
+	print("Testing getDen for Fraction A: %s" % (test.getDen()))
 
