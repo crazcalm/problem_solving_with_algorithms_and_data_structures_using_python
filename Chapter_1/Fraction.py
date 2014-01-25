@@ -30,9 +30,7 @@ class Fraction:
 
 		newden = self.den * otherfraction.den
 
-		common = gcd(newnum, newden)
-		
-		return Fraction(newnum//common, newden//common)
+		return Fraction(newnum, newden)
 	
 	def __eq__(self, other):
 		
@@ -40,6 +38,15 @@ class Fraction:
 		secondnum = other.num * self.den
 
 		return firstnum == secondnum
+
+	def __sub__(self, other):
+
+		newnum = self.num * other.den - \
+			     self.den * other.num
+
+		newden = self.den * other.den
+
+		return Fraction(newnum, newden)
 
 	def getNum(self):
 		
@@ -92,5 +99,10 @@ if __name__ == "__main__":
 	print("Testing equality: %s == %s --> %s\n" % (test, test3, test==test3))
 	
 	print("Testing getNum for Fraction A: %s" % (test.getNum()))
-	print("Testing getDen for Fraction A: %s" % (test.getDen()))
+	print("Testing getDen for Fraction A: %s\n" % (test.getDen()))
+
+	print("Testing Subtraction: %s - %s = %s" % (test, test2, test - test2))
+	print("Testing Subtraction: %s - %s = %s" % (test2, test, test2 - test))
+	print("Testing Subtraction: %s - %s = %s\n" % (test, test, test - test))
+
 
