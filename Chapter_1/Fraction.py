@@ -39,6 +39,49 @@ class Fraction:
 
 		return firstnum == secondnum
 
+	def __ne__(self, other):
+
+		if not self.__eq__(other):
+			return True
+
+		else:
+			return False
+
+	def __gt__(self, other):
+
+		a = self.num * float(self.den)
+		b = other.num * float(other.den)
+
+		if a > b:
+			return True
+
+		else:
+			return False
+
+	def __ge__(self, other):
+		
+		if self.__eq__(other) or self.__gt__(other):
+			return True
+		
+		else:
+			return False
+
+	def __lt__(self, other):
+	
+		if not self.__ge__(other):
+			return True
+
+		else:
+			return False
+
+	def __le__(self, other):
+		
+		if not self.__gt__(other) or self.__eq__(other):
+			return True
+
+		else:
+			return False
+
 	def __sub__(self, other):
 
 		newnum = self.num * other.den - \
@@ -128,4 +171,17 @@ if __name__ == "__main__":
 	print("Testing __mul__: %s * %s = %s" % (test, test4, test * test4))
 	print("Testing __mul__: %s * %s = %s\n" % (test, test5, test * test5))
 
-	print("Testing __truediv__: %s / %s = %s" % (test, test, test/test))
+	print("Testing __truediv__: %s / %s = %s\n" % (test, test, test/test))
+
+	print("Testing __gt__: %s > %s = %s" % (test2, test, test2 > test))
+	print("Testing __gt__: %s > %s = %s" % (test, test2, test > test2))
+	print("Testing __gt__: %s > %s = %s" % (test, test, test > test))
+	print("Testing __ge__: %s >= %s = %s" % (test, test, test >= test))
+	print("Testing __lt__: %s < %s = %s" % (test, test2, test < test2))
+	print("Testing __lt__: %s < %s = %s" % (test2, test, test2 < test))
+	print("Testing __le__: %s <= %s = %s" % (test, test2, test <= test2))
+	print("Testing __ne__: %s != %s = %s" % (test, test2, test != test2))
+	print("Testing __ne__: %s != %s = %s" % (test, test, test != test))
+	
+
+	
