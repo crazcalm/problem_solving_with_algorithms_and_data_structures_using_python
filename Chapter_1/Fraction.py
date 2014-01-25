@@ -26,7 +26,13 @@ class Fraction:
 		common = gcd(newnum, newden)
 		
 		return Fraction(newnum//common, newden//common)
-		#return Fraction(newnum, newden)
+	
+	def __eq__(self, other):
+		
+		firstnum = self.num * other.den
+		secondnum = other.num * self.den
+
+		return firstnum == secondnum
 
 
 def squareroot(n):
@@ -58,6 +64,7 @@ def gcd(m,n):
 if __name__ == "__main__":
 	test = Fraction(1,2)
 	test2 = Fraction(6,8)
+	test3 = Fraction(4,8)
 
 	print("Testing BASIC Functionality: \n")
 	print("Fraction A = %s" % (test))
@@ -65,3 +72,7 @@ if __name__ == "__main__":
 	print("%s + %s = %s\n" % (test, test2, test+test2))
 	print("The gcd(100,40) = %d" %  gcd(100,40))
 	print("The sqrt(10) = %f " % squareroot(10))
+	print("Testing equality: 1/2 == 1/2 --> %s" % (test==test))
+	print("Testing equality: 1/2 == 6/8 --> %s" % (test==test2))
+	print("Testing equality: 1/2 == 4/8 --> %s" % (test==test3))
+
