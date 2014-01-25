@@ -48,6 +48,14 @@ class Fraction:
 
 		return Fraction(newnum, newden)
 
+	def __mul__(self, other):
+
+		newnum = self.num * other.num
+	
+		newden = self.den * other.den
+
+		return Fraction(newnum, newden)
+
 	def getNum(self):
 		
 		return self.num
@@ -87,13 +95,18 @@ if __name__ == "__main__":
 	test = Fraction(1,2)
 	test2 = Fraction(6,8)
 	test3 = Fraction(4,8)
-
+	test4 = Fraction(-1,2)
+	test5 = Fraction(0,1)
+	
 	print("Testing BASIC Functionality: \n")
+
 	print("Fraction A = %s" % (test))
 	print("Fraction B = %s \n" % (test2))
+
 	print("%s + %s = %s\n" % (test, test2, test+test2))
 	print("The gcd(100,40) = %d" %  gcd(100,40))
-	print("The sqrt(10) = %f " % squareroot(10))
+	print("The sqrt(10) = %f\n" % squareroot(10))
+
 	print("Testing equality: %s == %s --> %s" % (test, test, test==test))
 	print("Testing equality: %s == %s --> %s" % (test, test2, test==test2))
 	print("Testing equality: %s == %s --> %s\n" % (test, test3, test==test3))
@@ -105,4 +118,7 @@ if __name__ == "__main__":
 	print("Testing Subtraction: %s - %s = %s" % (test2, test, test2 - test))
 	print("Testing Subtraction: %s - %s = %s\n" % (test, test, test - test))
 
+	print("Testing __mul__: %s * %s = %s" % (test, test, test * test))
+	print("Testing __mul__: %s * %s = %s" % (test, test4, test * test4))
+	print("Testing __mul__: %s * %s = %s" % (test, test5, test * test5))
 
