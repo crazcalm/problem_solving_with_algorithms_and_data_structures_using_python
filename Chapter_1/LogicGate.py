@@ -53,7 +53,7 @@ class UnaryGate(LogicGate):
 	def getPin(self):
 
 		return int(input("Enter Pin iput for gate " + \
-							self.getLabel+"-->"))
+							self.getLabel()+"-->"))
 
 class AndGate(BinaryGate):
 
@@ -65,17 +65,56 @@ class AndGate(BinaryGate):
 		a = self.getPinA()
 		b = self.getPinB()
 
-		# This is only half of an And 
-		# cases?! Why?
 		if a==1 and b==1:
 			return 1
 		else:
 			return 0
 
+class OrGate(BinaryGate):
+
+	def __init__(self, n):
+		super().__init__(n)
+
+	def performGateLogic(self):
+
+		a = self.getPinA()
+		b = self.getPinB()
+
+		if a==1 or b==1:
+			return 1
+			
+		else:
+			return 0
+
+class NotGate(UnaryGate):
+
+	def __init__(self, n):
+		super().__init__(n)
+
+	def performGateLogic(self):
+		
+		a = self.getPin()
+
+		if a ==1:
+			return 0
+		
+		else:
+			return 1	
+
 
 if __name__ == "__main__":
 	
-	print("Testing the AndGate:\n")
+	print("Testing the AndGate:")
 	g1 = AndGate("G1")
 	g1.getOutput()
-	print("Answer: %s" % (g1.output))
+	print("Answer: %s\n" % (g1.output))
+
+	print("Testing the OrGate:")
+	g2 = OrGate("G2")
+	g2.getOutput()
+	print("Answer: %s\n" % (g2.output))
+
+	print("Testing the NotGate:")
+	g3 = NotGate("G3")
+	g3.getOutput()
+	print("Answer: %s\n" % (g3.output))
