@@ -34,14 +34,31 @@ class BinaryGate(LogicGate):
 		self.pinB = None
 
 	def getPinA(self):
+		if self.pinA == None:
+			return int(input("Enter Pin A input for gate " + \
+						self.getLabel() +"-->"))
 
-		return int(input("Enter Pin A input for gate " + \
-							self.getLabel()+"-->"))
+		else: 
+			return self.pinA.getFrom().getOutput()
+
 
 	def getPinB(self):
+		if self.pinB == None:
+			return int(input("Enter Pin B input for gate " + \
+						self.getLabel() +"-->"))
 
-		return int(input("Enter Pin B input for gate " + \
-							self.getLabel()+"-->"))
+		else: 
+			return self.pinB.getFrom().getOutput()
+
+#	def getPinA(self):
+
+#		return int(input("Enter Pin A input for gate " + \
+#							self.getLabel()+"-->"))
+
+#	def getPinB(self):
+
+#		return int(input("Enter Pin B input for gate " + \
+#							self.getLabel()+"-->"))
 
 	def setNextPin(self, source):
 		if self.pinA == None:
