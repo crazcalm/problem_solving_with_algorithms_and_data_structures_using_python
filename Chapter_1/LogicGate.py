@@ -50,16 +50,6 @@ class BinaryGate(LogicGate):
 		else: 
 			return self.pinB.getFrom().getOutput()
 
-#	def getPinA(self):
-
-#		return int(input("Enter Pin A input for gate " + \
-#							self.getLabel()+"-->"))
-
-#	def getPinB(self):
-
-#		return int(input("Enter Pin B input for gate " + \
-#							self.getLabel()+"-->"))
-
 	def setNextPin(self, source):
 		if self.pinA == None:
 			self.pinA = source
@@ -78,11 +68,6 @@ class UnaryGate(LogicGate):
 		super().__init__(n)
 
 		self.pinA = None
-
-	#def getPin(self):
-
-	#	return int(input("Enter Pin iput for gate " + \
-	#						self.getLabel()+"-->"))
 
 	def setNextPin(self, source):
 		if self.pinA == None:
@@ -118,6 +103,22 @@ class AndGate(BinaryGate):
 		else:
 			return 0
 
+class NotAndGate(BinaryGate):
+	
+	def __init__(self, n):
+		super().__init__(n)
+
+	def performGateLogic(self):
+	
+		a = self.getPinA()
+		b = self.getPinB()
+
+		if a==1 and b==1:
+			return 0
+		
+		else:
+			return 1
+
 class OrGate(BinaryGate):
 
 	def __init__(self, n):
@@ -131,6 +132,38 @@ class OrGate(BinaryGate):
 		if a==1 or b==1:
 			return 1
 			
+		else:
+			return 0
+
+class NotOrGate(BinaryGate):
+
+	def __init__(self, n):
+		super().__init__(n)
+	
+	def performGateLogic(self):
+
+		a = self.getPinA()
+		b = self.getPinB()
+
+		if a==1 or b==1:
+			return 0 
+
+		else:
+			return 1
+
+class XORGate(BinaryGate):
+
+	def __init__(self, n):
+		super().__init__(n)
+
+	def performGateLogic(self):
+
+		a = self.getPinA()
+		b = self.getPinB()
+
+		if a != b:
+			return 1
+
 		else:
 			return 0
 
@@ -192,4 +225,15 @@ if __name__ == "__main__":
 
 	g4.getOutput()
 	print("\nAnd, And, Or, Not Gates")
-	print("Answer: %s" % (g4.output))
+	print("Answer: %s\n" % (g4.output))
+
+	print("Testing NAND, NOR, and XOR Gates:")
+	g5 = NotAndGate("G5")
+	g5.getOutput()
+	print("NAND answer: %s\n" % (g5.output))
+	g6 = NotOrGate("G6")
+	g6.getOutput()
+	print("NOR answer: %s\n" % (g6.output))
+	g7 = XORGate("G7")
+	g7.getOutput()
+	print("XOR answer: %s" % (g7.output))
