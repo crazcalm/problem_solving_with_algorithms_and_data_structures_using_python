@@ -54,9 +54,9 @@ if __name__ == "__main__":
 		sum2, time2 = sumOfN2(n)
 		sum3, time3 = sumOfN3(n)
 
-		print("\nsumOfN2 --> Answer: %d, Time: %f" % \
-				(sum2, time2))
+		print("\nsumOfN2(%d) --> Answer: %d, Time: %f" % \
+				(n, sum2, time2))
 	
-		print("sumOfN3 --> Answer: %d, Time: %f" % \
-				(sum3, time3))
+		print("sumOfN3(%d) --> Answer: %d, Time: %f" % \
+				(n, sum3, time3))
 	
