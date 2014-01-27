@@ -19,8 +19,17 @@ def sumOfN2(n):
 
 	end = time.time()	
 
-	return theSum, end-start
+	return theSum, end - start
 
+def sumOfN3(n):
+
+	start = time.time()
+
+	theSum = (n*(n+1))/2
+	
+	end = time.time()
+	
+	return theSum, end - start
 
 if __name__ == "__main__":
 
@@ -33,3 +42,8 @@ if __name__ == "__main__":
 	
 	print("Testing sumOfN2 for n = %d\nAnswer: %d\nTime: %f\n" % \
 			 (number, answer2, timer2))
+
+	answer3, timer3 = sumOfN3(number)
+	print("Testing sumOfN3 for n = %d\nAnswer: %d\nTime: %f\n" % \
+			 (number, answer3, timer3))
+
