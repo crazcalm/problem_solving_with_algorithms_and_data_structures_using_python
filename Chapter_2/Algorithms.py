@@ -102,6 +102,23 @@ def anagramSolution4(s1, s2): # Count and Compare
 
 	return stillOK
 
+def anagramSolution5(s1, s2): # mine
+	"""
+	It is not faster than version 3, but it is less code.
+	Sometimes, that is all that matters...
+	"""
+
+
+	alist1, alist2 = list(s1), list(s2)
+	alist1.sort()
+	alist2.sort()
+
+	stillOK = True
+
+	if str(alist1) != str(alist2):
+		stillOK = False
+
+	return stillOK
 
 if __name__ == "__main__":
 
@@ -155,5 +172,11 @@ if __name__ == "__main__":
 
 	print("anagramSolution4: %s vs %s \nAnswer: %s\n" % \
 			(word1, word3, anagramSolution4(word1,word3)))
+
+	print("anagramSolution5: %s vs %s \nAnswer: %s\n" % \
+			(word1, word2, anagramSolution5(word1,word2)))
+
+	print("anagramSolution5: %s vs %s \nAnswer: %s\n" % \
+			(word1, word3, anagramSolution5(word1,word3)))
 
 	
