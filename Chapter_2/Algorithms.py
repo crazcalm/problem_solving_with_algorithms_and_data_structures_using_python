@@ -31,7 +31,7 @@ def sumOfN3(n):
 	
 	return theSum, end - start
 
-def anagramSolution1(s1, s2):
+def anagramSolution1(s1, s2): # Checking off
 	
 	alist = list(s2)
 
@@ -60,7 +60,7 @@ def anagramSolution1(s1, s2):
 
 	return stillOK
 
-def anagramSolution2(s1,s2):
+def anagramSolution2(s1,s2): # Sort and compare
 
 	alist1 = list(s1)
 	alist2 = list(s2)
@@ -79,6 +79,28 @@ def anagramSolution2(s1,s2):
 			matches = False
 
 	return matches
+
+def anagramSolution4(s1, s2): # Count and Compare
+	c1 = [0] * 26
+	c2 = [0] * 26
+
+	for i in range(len(s1)):
+		pos = ord(s1[i]) - ord("a")
+		c1[pos] = c1[pos] + 1
+
+	for i in range(len(s2)):
+		pos = ord(s2[i]) - ord('a')
+		c2[pos] = c2[pos] + 1
+
+	j = 0
+	stillOK = True
+	while j<26 and stillOK:
+		if c1[j] == c2[j]:
+			j = j + 1
+		else:
+			stillOK = False
+
+	return stillOK
 
 
 if __name__ == "__main__":
@@ -127,5 +149,11 @@ if __name__ == "__main__":
 
 	print("anagramSolution2: %s vs %s \nAnswer: %s\n" % \
 			(word1, word3, anagramSolution2(word1,word3)))
+
+	print("anagramSolution4: %s vs %s \nAnswer: %s\n" % \
+			(word1, word2, anagramSolution4(word1,word2)))
+
+	print("anagramSolution4: %s vs %s \nAnswer: %s\n" % \
+			(word1, word3, anagramSolution4(word1,word3)))
 
 	
