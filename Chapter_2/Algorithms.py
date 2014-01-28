@@ -31,6 +31,37 @@ def sumOfN3(n):
 	
 	return theSum, end - start
 
+def anagramSolution1(s1, s2):
+	
+	alist = list(s2)
+
+	pos1 = 0
+	stillOK = True
+
+	while pos1 < len(s1) and stillOK:
+		
+		pos2 = 0
+		found = False
+
+		while pos2 < len(alist) and not found:
+			
+			if s1[pos1] == alist[pos2]:
+				found = True
+				
+			else:
+				pos2 = pos2 + 1
+
+		if found:
+			alist[pos2] = None
+		
+		else:
+			stillOK = False
+
+		pos1 += 1
+
+	return stillOK
+
+
 if __name__ == "__main__":
 
 	number = 100000
@@ -59,4 +90,17 @@ if __name__ == "__main__":
 	
 		print("sumOfN3(%d) --> Answer: %d, Time: %f" % \
 				(n, sum3, time3))
+	
+
+	print("\nTesting anagram Solutions:\n")
+	word1 = "marcus"
+	word2 = "sucram"
+	word3 = "loser"
+
+	print("anagramSolution1: %s vs %s \nAnswer: %s\n" % \
+			(word1, word2, anagramSolution1(word1,word2)))
+
+	print("anagramSolution1: %s vs %s \nAnswer: %s\n" % \
+			(word1, word3, anagramSolution1(word1,word3)))
+
 	
