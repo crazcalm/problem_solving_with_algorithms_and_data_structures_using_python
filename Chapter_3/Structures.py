@@ -5,7 +5,11 @@ class Stack:
 		self.items = []
 
 	def __str__(self):
-		return ", ".join(self.items)
+		
+		result = ""
+		for index, item in enumerate(self.items):
+			result += "\n%s: %s" % (index, item)
+		return result
 
 	def __repr__(self):
 		return self.__str__()
@@ -31,10 +35,10 @@ if __name__ == "__main__":
 	print("Testing the Stack class:\n")
 
 	test = Stack()
-	print("isEmpty: %s" % test.isEmpty())
+	print("isEmpty: %s\n" % test.isEmpty())
 	test.push("All I say are lies!")
 	test.push("Marcus is the Man!!!")
-	print("push: %s" % test)
-	print("pop: %s" % test.pop())
-	print("peek: %s" % test.peek())
-	print("size: %s" % test.size())
+	print("push: %s\n" % test)
+	print("pop: %s\n" % test.pop())
+	print("peek: %s\n" % test.peek())
+	print("size: %s\n" % test.size())
